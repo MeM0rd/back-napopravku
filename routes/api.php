@@ -19,8 +19,6 @@ Route::prefix('quotes')->name('quotes.')->group(function () {
     Route::get('/', [QuoteController::class, 'index'])->name('index');
     Route::post('/', [QuoteController::class, 'createOrUpdateQuotes'])->name('createOrUpdate');
 
-    Route::get('search', [QuoteController::class, 'searchQuotes'])->name('search');
-
     Route::group(['prefix' => '{id}', 'where' => ['id' => '[0-9]+']], function () {
         Route::get('/', [QuoteController::class, 'show'])->name('show');
     });
